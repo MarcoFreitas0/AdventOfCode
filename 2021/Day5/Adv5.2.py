@@ -38,5 +38,5 @@ for line in fhnd :
 for pipe in pipes :
     draw(pipe)
 
-print('Part 1 Result:', np.count_nonzero(map >= 2))
-#Part 1 Result: 4628 (which is too low)
+print('Part 2 Result:', np.count_nonzero(map >= 2))
+
