@@ -4,16 +4,16 @@ fhnd = open('input5.txt')
 
 map = np.zeros((1000,1000), dtype = int)
 
-def draw (pipe) :
-    x1, y1, x2, y2 = pipe
+def draw (coordinate) :
+    x1, y1, x2, y2 = coordinate
+    if x1 > x2:
+        x1, y1, x2, y2 = x2, y2, x1, y1
     if y1 == y2 :
-        if x1 > x2:
-            x1, x2 = x2, x1
-        map[x1:x2, y1] = np.where(True, map[x1:x2, y1] + 1, 0)
+        map[x1:x2 + 1, y1] =  map[x1:x2 + 1, y1] + 1
     elif x1 == x2 :
         if y1 > y2:
             y1, y2 = y2, y1
-        map[x1, y1:y2] = np.where(True, map[x1, y1:y2] + 1, 0)
+        map[x1, y1:y2 + 1] = map[x1, y1:y2 + 1] + 1
 
 pipes = tuple()
 for line in fhnd :
@@ -29,4 +29,5 @@ for pipe in pipes :
     draw(pipe)
 
 print('Part 1 Result:', np.count_nonzero(map >= 2))
-#Part 1 Result: 4628 (which is too low)
+
+#Part 1 Result: 2655 (correct)
