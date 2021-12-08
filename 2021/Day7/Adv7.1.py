@@ -1,4 +1,3 @@
-import math
 fhnd = open('input7.txt')
 
 input = [int(crab) for crab in fhnd.read().strip().split(',')]
